@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, request
 import numpy as np
 import tensorflow as tf
+from dotenv import load_dotenv
+import os
 
 PHYLUMS = ['Protozoarios', 'Poriferos', 'cnidarios', 'ctanoforos', 'platelmintos', 'nemertinos', 'asquelmintos',
            'acantocefalos', 'moluscos', 'anelidos', 'artropodos', 'equinodermos', 'cordados']
@@ -33,4 +35,6 @@ def getPhylum():
     })
 
 if __name__ == "__main__":
-    app.run(debug = True, port = 3333)
+    load_dotenv()
+    port = int(os.getenv("PORT"))
+    app.run(debug = True, port = port)
