@@ -37,4 +37,4 @@ def getPhylum():
 if __name__ == "__main__":
     load_dotenv()
     port = int(os.getenv("PORT"))
-    app.run(debug = True, port = port)
+    app.run(debug = True, port = port, host= "0.0.0.0")
