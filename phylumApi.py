@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import numpy as np
 import tensorflow as tf
 from dotenv import load_dotenv
@@ -10,6 +11,7 @@ PHYLUMS = ['Protozoarios', 'Poriferos', 'cnidarios', 'ctanoforos', 'platelmintos
 model = tf.keras.models.load_model("Phylum_recognition_model_V1.h5")
 
 app = Flask(__name__)
+CORS(app)
 
 @app.get('/healthCheck')
 def healthCheck():
